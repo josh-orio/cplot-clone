@@ -6,7 +6,7 @@ file(GLOB SOURCES "src/*.cpp")
 file(GLOB HEADERS "include/*.hpp")
 
 add_library(cplotlib ${SOURCES})
-# target_include_directories(cplotlib PUBLIC include)
+target_include_directories(cplotlib PUBLIC include)
 # target_include_directories(cplotlib
 #     PUBLIC
 #         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
