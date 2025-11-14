@@ -7,10 +7,16 @@ file(GLOB HEADERS "include/*.hpp")
 
 add_library(cplotlib ${SOURCES})
 # target_include_directories(cplotlib PUBLIC include)
+# target_include_directories(cplotlib
+#     PUBLIC
+#         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#         $<INSTALL_INTERFACE:include>
+# )
+
 target_include_directories(cplotlib
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>
+    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
 find_package(nlohmann_json REQUIRED)
