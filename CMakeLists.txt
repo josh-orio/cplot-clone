@@ -13,11 +13,18 @@ add_library(cplotlib ${SOURCES})
 #         $<INSTALL_INTERFACE:include>
 # )
 
+# target_include_directories(cplotlib
+#     PUBLIC
+#     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+#     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
+# )
+
 target_include_directories(cplotlib
     PUBLIC
-    "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-    "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/cplotlib>"
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/cplotlib>"
 )
+
 
 find_package(nlohmann_json REQUIRED)
 target_link_libraries(cplotlib PUBLIC nlohmann_json::nlohmann_json)
